@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navcolor {
+    background-color: rgb(9, 188, 219);
+}
+
+.ulcss {
+    display: inline;
+    margin-right: 8%;
+
+}
+.ulcss li{
+    margin-right: 50px;
+}
+#home {
+
+    float: right;
+
+}
+
+#contact {
+    float: right;
+
+}
+
+#blogs {
+    float: right;
+}
+#home {
+
+    float: right;
+
+}
+#home a {
+    font-family: cursive;
+    text-decoration: none;
+color: white;
+font-size: 18px;
+}
+
+#contact a {
+color: white;
+    font-family: cursive;
+    text-decoration: none;
+font-size: 18px;
+}
+
+#blogs a {
+    font-family: cursive;
+    text-decoration: none;
+color: white;
+font-size: 18px;
+}
+#blogs a:hover {
+    color: black;
+}
+#contact a:hover {
+color: black;
+}
+#home a:hover {
+    color: black;
+}

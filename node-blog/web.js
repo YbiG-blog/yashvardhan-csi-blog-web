@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+const ejs = require('ejs');
 
 const app = express();
 app.use(bodyparser.urlencoded({extended:true}));
+app.set('view engine', 'ejs')
 app.use(express.static("public"))
 app.get("/",function(req,res){
-    res.sendFile(__dirname+"/index.html");
+    res.render("index");
 })
 
 app.post("/",function(req,res){

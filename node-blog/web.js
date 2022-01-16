@@ -3,6 +3,7 @@ const bodyparser = require("body-parser");
 const ejs = require('ejs');
 const request=require("request");
 const https=require("https");
+const _ = require('lodash');
 
 const app = express();
 
@@ -44,13 +45,32 @@ app.post("/post",function(req,res){
     postarray.push(obj);
     res.redirect("/");
 })
+
+app.get("/postarray/:posttittle",function(req,res){
+    const reqtittle= _.lowerCase(req.params.posttittle);
+
+    postarray.forEach(i => {
+        const looptittle = _.lowerCase(i.tit); 
+        if(looptittle===reqtittle)
+        {
+            // res.render("blogs",{
+            // tittle: i.tit,
+            // para:i.para
+
+       // })
+ console.log(i.tit)
+    }
+       
+    });
+   
+})
 // signup page
-app.get("/signup",function(req,res){
+app.get("/contact",function(req,res){
  
-    res.render("signup");
+    res.render("contact");
 });
 
-app.post("/signup",function(req,res){
+app.post("/contact",function(req,res){
     var nm1=req.body.namefst;
     var nm2=req.body.namelst;
     var gm=req.body.gmail;
@@ -95,7 +115,7 @@ app.post("/signup",function(req,res){
     request.end();
 });
 app.post("/fail",function(req,res){
-    res.redirect("/signup");
+    res.redirect("/contact");
 })
 
 ///////////////

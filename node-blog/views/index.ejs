@@ -2,12 +2,20 @@
 <%- include("headfoot/header"); -%>
 
 
-<h1>
-  Title
-</h1>
-<p>
-  My page
-</p>
+  <h1>
+    home
+  </h1>
 
-<!-- footer -->
-<%- include("headfoot/footer"); -%>
+
+  <% postarray.forEach(i=> { %>
+    <h2 class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif;">
+      <%= i.tit %>
+    </h2>
+    <p class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif;">
+      <%= i.para %>
+    </p>
+    <% }); %>
+    
+
+      <!-- footer -->
+      <%- include("headfoot/footer"); -%>

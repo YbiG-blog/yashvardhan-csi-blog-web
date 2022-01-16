@@ -10,8 +10,17 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine', 'ejs')
 app.use(express.static("public"))
 
+const lt="this is yash"
+//// post array
+var postarray=[]
 app.get("/",function(req,res){
-    res.render("index");
+    
+    // res.render("index");
+    res.render("index",{
+            list:lt ,
+        postarray: postarray
+    })
+   
 })
 
 app.get("/contact",function(req,res){
@@ -21,6 +30,20 @@ app.get("/blogs",function(req,res){
  
     res.render("blogs");
 });
+/// post-paragraph
+app.get("/post",function(req,res){
+    res.render("post");
+})
+app.post("/post",function(req,res){
+
+    const obj={
+        tit: req.body.tittle,
+        para: req.body.content,
+    }
+   
+    postarray.push(obj);
+    res.redirect("/");
+})
 // signup page
 app.get("/signup",function(req,res){
  
@@ -74,8 +97,10 @@ app.post("/signup",function(req,res){
 app.post("/fail",function(req,res){
     res.redirect("/signup");
 })
+
 ///////////////
 
 app.listen(3000,function(){
     console.log("server is runnig at port 3000")
 })
+

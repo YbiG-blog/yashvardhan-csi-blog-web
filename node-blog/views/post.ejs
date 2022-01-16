@@ -1,0 +1,26 @@
+<!-- header -->
+<%- include("headfoot/header"); -%>
+
+
+
+<form action="/post" method="post">
+    <div class="container-fluid t-4 p-4">
+    <div class="form-group">
+        <label style="font-family: 'Times New Roman', Times, serif;">Tittle</label>
+        <input class="form-control" type="text" name="tittle" >
+     
+    <label style="font-family: 'Times New Roman', Times, serif;">Post</label>
+    <textarea class="form-control" name="content" rows="10" cols="50"  style="border-radius: 5px; border: 1px solid black;" > 
+    </textarea>
+  </div>
+
+<button type="submit" style="border-radius: 5px;
+border: 2px solid black; font-family: 'Times New Roman', Times, serif; padding: 2px;" >Publish</button>
+
+</div>
+</form>
+
+
+
+<!-- footer -->
+<%- include("headfoot/footer"); -%>

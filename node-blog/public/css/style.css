@@ -54,6 +54,17 @@ font-size: 18px;
 color: white;
 font-size: 18px;
 }
+
+#signup a {
+    font-family: cursive;
+    text-decoration: none;
+color: white;
+font-size: 18px;
+}
+#signup a:hover {
+    color: black;
+}
+
 #blogs a:hover {
     color: black;
 }

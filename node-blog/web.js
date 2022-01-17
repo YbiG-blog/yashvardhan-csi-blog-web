@@ -11,14 +11,12 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine', 'ejs')
 app.use(express.static("public"))
 
-const lt="this is yash"
+
 //// post array
 var post=[]
+
 app.get("/",function(req,res){
-    
-    // res.render("index");
     res.render("index",{
-            list:lt ,
         post: post
     })
    
@@ -111,6 +109,12 @@ app.post("/fail",function(req,res){
     res.redirect("/contact");
 })
 
+app.get("/about",function(req,res){
+    
+   
+    res.render("about")
+   
+})
 ///////////////
 
 app.listen(3000,function(){

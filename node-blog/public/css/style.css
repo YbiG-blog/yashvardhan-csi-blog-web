@@ -48,14 +48,14 @@ color: white;
 font-size: 18px;
 }
 
-#blogs a {
+#posts a {
     font-family: cursive;
     text-decoration: none;
 color: white;
 font-size: 18px;
 }
 
-#blogs a:hover {
+#posts a:hover {
     color: black;
 }
 #contact a:hover {

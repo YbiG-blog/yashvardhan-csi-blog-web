@@ -13,57 +13,50 @@ app.use(express.static("public"))
 
 const lt="this is yash"
 //// post array
-var postarray=[]
+var post=[]
 app.get("/",function(req,res){
     
     // res.render("index");
     res.render("index",{
             list:lt ,
-        postarray: postarray
+        post: post
     })
    
 })
 
-app.get("/contact",function(req,res){
-    res.render("contact");
-})
-app.get("/blogs",function(req,res){
- 
-    res.render("blogs");
-});
 /// post-paragraph
-app.get("/post",function(req,res){
-    res.render("post");
+app.get("/addp",function(req,res){
+    res.render("addp");
 })
-app.post("/post",function(req,res){
+app.post("/addp",function(req,res){
 
     const obj={
         tit: req.body.tittle,
         para: req.body.content,
     }
    
-    postarray.push(obj);
+    post.push(obj);
     res.redirect("/");
 })
 
-app.get("/postarray/:posttittle",function(req,res){
+app.get("/post/:posttittle",function(req,res){
     const reqtittle= _.lowerCase(req.params.posttittle);
 
-    postarray.forEach(i => {
-        const looptittle = _.lowerCase(i.tit); 
+    post.forEach(page => {
+        const looptittle = _.lowerCase(page.tit); 
         if(looptittle===reqtittle)
         {
-            // res.render("blogs",{
-            // tittle: i.tit,
-            // para:i.para
+           res.render("posts",{
+              tittle: page.tit,
+              content: page.para
+           });
 
-       // })
- console.log(i.tit)
+
     }
        
     });
    
-})
+});
 // signup page
 app.get("/contact",function(req,res){
  

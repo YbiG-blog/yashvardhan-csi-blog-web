@@ -1,18 +1,16 @@
 <!-- header -->
 <%- include("headfoot/header"); -%>
 
-
-  <h1>
-    home
-  </h1>
-
-  <% postarray.forEach(i=> { %>
+  <% post.forEach(i=> { %>
+    <div class="container-fluid t-4 p-4">
     <h2 class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif;">
       <%= i.tit %>
     </h2>
-    <p class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif;">
-      <%= i.para %>
+    <p style="font-family: 'Times New Roman', Times, serif;">
+      <%= i.para.substring(0, 50)+"....." %>
+      <a href="/post/<%= i.tit %>">Read more</a>
     </p>
+  </div>
     <% }); %>
     
 

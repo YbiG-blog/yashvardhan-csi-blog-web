@@ -1,13 +1,14 @@
 <!-- header -->
 <%- include("headfoot/header"); -%>
 
-
+<h2 class="text-center t-4 p-4" style="font-family: 'Times New Roman', Times, serif; color: rgb(60, 14, 230);">
+  Add a new post</h2>
 
 <form action="/addp" method="post">
     <div class="container-fluid t-4 p-4">
     <div class="form-group">
         <label style="font-family: 'Times New Roman', Times, serif;">Tittle</label>
-        <input class="form-control" type="text" name="tittle" >
+        <input class="form-control" type="text" name="tittle">
      
     <label style="font-family: 'Times New Roman', Times, serif;">Post</label>
     <textarea class="form-control" name="content" rows="7" cols="50"  style="border-radius: 5px; border: 1px solid black;" > 

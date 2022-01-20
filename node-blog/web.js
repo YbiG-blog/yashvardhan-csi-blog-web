@@ -1,60 +1,46 @@
 const express = require("express");
-const bodyparser = require("body-parser");
-const ejs = require('ejs');
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
 const request=require("request");
 const https=require("https");
 const _ = require('lodash');
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser:true} );
 
 const app = express();
 
-app.use(bodyparser.urlencoded({extended:true}));
-app.set('view engine', 'ejs')
-app.use(express.static("public"))
-
-
-//// post array
-var post=[]
-
-app.get("/",function(req,res){
-    res.render("index",{
-        post: post
-    })
-   
-})
-
-/// post-paragraph
-app.get("/addp",function(req,res){
-    res.render("addp");
-})
-app.post("/addp",function(req,res){
-
-    const obj={
-        tit: req.body.tittle,
-        para: req.body.content,
-    }
-   
-    post.push(obj);
-    res.redirect("/");
-})
-
-app.get("/post/:posttittle",function(req,res){
-    const reqtittle= _.lowerCase(req.params.posttittle);
-
-    post.forEach(page => {
-        const looptittle = _.lowerCase(page.tit); 
-        if(looptittle===reqtittle)
-        {
-           res.render("posts",{
-              tittle: page.tit,
-              content: page.para
-           });
-
-
-    }
-       
-    });
-   
+const postSchema = new mongoose.Schema({
+  tittle: String,
+  body: String
 });
+
+const Post = mongoose.model("Post", postSchema);
+
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(express.static("public"));
+
+app.get("/", function(req, res) {
+
+  Post.find(function(err, posts){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("index", {
+        posts: posts
+      });
+    }
+  });
+});
+
+app.get("/about",function(req,res){
+    res.render("about") 
+})
+
 // signup page
 app.get("/contact",function(req,res){
  
@@ -109,15 +95,36 @@ app.post("/fail",function(req,res){
     res.redirect("/contact");
 })
 
-app.get("/about",function(req,res){
-    
-   
-    res.render("about")
-   
-})
-///////////////
 
-app.listen(3000,function(){
-    console.log("server is runnig at port 3000")
-})
+app.get("/addp", function(req, res) {
+  res.render("addp");
+});
 
+app.post("/addp", function(req, res) {
+    const post = new Post({
+      tittle: req.body.tittle,
+      body: req.body.content
+    });
+  
+    post.save(function(err){
+      if(!err){
+        res.redirect("/");
+      }
+    });
+  });
+
+app.get("/posts/:posttittle", function(req, res) {
+  const reqtittle = req.params.posttittle;
+
+  Post.findOne({_id: reqtittle}, function(err, post){
+      res.render("post", {
+        tittle : post.tittle ,
+        content : post.body
+      });
+  });
+});
+
+
+app.listen(3000, function() {
+  console.log("Server started on port 3000");
+});

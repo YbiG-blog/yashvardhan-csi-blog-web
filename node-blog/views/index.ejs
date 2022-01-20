@@ -1,7 +1,7 @@
 <!-- header -->
 <%- include("headfoot/header"); -%>
 
-      <div class="container-fluid t-4 p-4 text-center" >
+      <div class="container-fluid t-4 p-4 text-center">
         <div class="embed-responsive embed-responsive-16by9" style="border: 3px solid grey; border-radius: 5px;">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/Mr0vW3MMoMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -9,14 +9,14 @@
       
       <h2 class="text-center t-4 p-4" style="font-family: 'Times New Roman', Times, serif; font-weight: bold; color: darkred;">Posts</h2>
 
-  <% post.forEach(i=> { %>
+  <%  posts.forEach(post=> { %>
     <div class="container-fluid t-4 p-4">
     <h2 class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif; color: rgb(243, 16, 61);">
-      <%= i.tit %>
+     <%= post.tittle %>
     </h2>
     <p style="font-family: 'Times New Roman', Times, serif; color: rgb(235, 182, 48);">
-      <%= i.para.substring(0, 50)+"....." %>
-      <a href="/post/<%= i.tit %>">Read more</a>
+      <%= post.body.substring(0, 50)+"....." %>
+      <a href="/posts/<%=post._id%>">Read more</a>
     </p>
   </div>
     <% }); %>

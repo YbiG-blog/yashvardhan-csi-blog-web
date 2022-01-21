@@ -12,15 +12,11 @@
     text-decoration: none;
 color: white;
 font-size: 18px;
+    font-weight:bold;
 }
 
 
 #addp  a:hover {
     color: black;
 }
-#contact a:hover {
-color: black;
-}
-#home a:hover {
-    color: black;
-}
+

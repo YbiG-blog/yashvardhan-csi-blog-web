@@ -6,7 +6,9 @@ const https=require("https");
 const _ = require('lodash');
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://admin-yash:yash2121@cluster0.6afcs.mongodb.net/BlogByYashDB");
+mongoose.connect("mongodb+srv://admin-yash:yash2121@cluster0.6afcs.mongodb.net/BlogByYashDB",{
+  useNewUrlParser: true,
+});
 // if ther is an eror with connection then use -> { useNewUrlParser:true} 
 
 const app = express();

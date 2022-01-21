@@ -7,55 +7,15 @@
     background-color: rgb(9, 188, 219);
 }
 
-.ulcss {
-    display: inline;
-    margin-right: 8%;
-
-}
-.ulcss li{
-    margin-right: 50px;
-}
-#home {
-
-    float: right;
-
-}
-
-#contact {
-    float: right;
-
-}
-
-#about {
-    float: right;
-}
-#home {
-
-    float: right;
-
-}
-#home a {
+#addp a {
     font-family: cursive;
     text-decoration: none;
 color: white;
 font-size: 18px;
 }
 
-#contact a {
-color: white;
-    font-family: cursive;
-    text-decoration: none;
-font-size: 18px;
-}
 
-#about  a {
-    font-family: cursive;
-    text-decoration: none;
-color: white;
-font-size: 18px;
-}
-
-#about  a:hover {
+#addp  a:hover {
     color: black;
 }
 #contact a:hover {

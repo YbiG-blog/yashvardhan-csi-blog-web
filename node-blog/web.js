@@ -5,11 +5,12 @@ const request=require("request");
 const https=require("https");
 const _ = require('lodash');
 const mongoose = require('mongoose');
+const { stubString } = require("lodash");
 
 mongoose.connect("mongodb+srv://admin-yash:yash2121@cluster0.6afcs.mongodb.net/BlogByYashDB",{
   useNewUrlParser: true,
 });
-// if ther is an eror with connection then use -> { useNewUrlParser:true} 
+
 
 const app = express();
 
@@ -54,7 +55,6 @@ app.post("/contact",function(req,res){
     var nm1=req.body.namefst;
     var nm2=req.body.namelst;
     var gm=req.body.gmail;
-    
     var data={
         members:[
             {

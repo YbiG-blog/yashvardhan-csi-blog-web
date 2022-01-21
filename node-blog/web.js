@@ -6,7 +6,8 @@ const https=require("https");
 const _ = require('lodash');
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser:true} );
+mongoose.connect("mongodb+srv://admin-yash:yash2121@cluster0.6afcs.mongodb.net/BlogByYashDB");
+// if ther is an eror with connection then use -> { useNewUrlParser:true} 
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.get("/", function(req, res) {
   Post.find(function(err, posts){
     if(err){
       console.log(err);
-    }else{
+    }{
       res.render("index", {
         posts: posts
       });
@@ -123,7 +124,6 @@ app.get("/posts/:posttittle", function(req, res) {
       });
   });
 });
-
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

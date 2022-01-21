@@ -26,7 +26,7 @@
 
 }
 
-#blogs {
+#about {
     float: right;
 }
 #home {
@@ -48,14 +48,14 @@ color: white;
 font-size: 18px;
 }
 
-#posts a {
+#about  a {
     font-family: cursive;
     text-decoration: none;
 color: white;
 font-size: 18px;
 }
 
-#posts a:hover {
+#about  a:hover {
     color: black;
 }
 #contact a:hover {

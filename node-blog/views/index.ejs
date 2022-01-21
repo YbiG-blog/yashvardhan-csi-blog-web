@@ -10,6 +10,7 @@
       <h2 class="text-center t-4 p-4" style="font-family: 'Times New Roman', Times, serif; font-weight: bold; color: darkred;">Posts</h2>
 
   <%  posts.forEach(post=> { %>
+    <form action="/" method="post">
     <div class="container-fluid t-4 p-4">
     <h2 class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif; color: rgb(243, 16, 61);">
      <%= post.tittle %>
@@ -19,8 +20,8 @@
       <a href="/posts/<%=post._id%>">Read more</a>
     </p>
   </div>
-    <% }); %>
-    
-
+</form>
+    <% }); %> 
+ 
       <!-- footer -->
       <%- include("headfoot/footer"); -%>

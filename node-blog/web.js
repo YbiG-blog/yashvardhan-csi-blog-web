@@ -7,7 +7,7 @@ const _ = require('lodash');
 const mongoose = require('mongoose');
 const { stubString } = require("lodash");
 
-mongoose.connect("mongodb+srv://admin-yash:yash2121@cluster0.6afcs.mongodb.net/BlogByYashDB",{
+mongoose.connect("mongodb+srv://yash7906:ybig2121@cluster0.gnqwd.mongodb.net/BlogByYDB",{
   useNewUrlParser: true,
 });
 

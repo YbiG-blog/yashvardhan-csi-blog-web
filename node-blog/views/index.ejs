@@ -1,27 +1,57 @@
 <!-- header -->
 <%- include("headfoot/header"); -%>
 
-      <div class="container-fluid t-4 p-4 text-center">
-        <div class="embed-responsive embed-responsive-16by9" style="border: 3px solid grey; border-radius: 5px;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Mr0vW3MMoMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-      
-      <h2 class="text-center t-4 p-4" style="font-family: 'Times New Roman', Times, serif; font-weight: bold; color: darkred;">Posts</h2>
+<div class="text-center t-4 p-4">
+  <img
+    class="mb-4"
+    src="img/blog_img.webp"
+    alt=""
+    width="60%"
+    height="35%"
+    style="border-radius: 5px; box-shadow: 10px 10px rgb(87, 175, 191)"
+  />
+</div>
 
-  <%  posts.forEach(post=> { %>
-    <form action="/" method="post">
-    <div class="container-fluid t-4 p-4">
-    <h2 class="t-2 p-2" style="font-family: 'Times New Roman', Times, serif; font-weight:bold; color: rgb(243, 16, 61);">
-     <%= post.tittle %>
+<div class="text-center t-2 p-3" style="display: flex; justify-content: center; align-items: center">
+  <h2
+    class="text-center t-2 p-3"
+    style="
+      width: 32%;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      color: white;
+      border: 1px solid rgb(11, 96, 111);
+      background-color: rgb(11, 96, 111);
+      border-radius: 5px;
+      box-shadow: 5px 5px 4px 5px rgb(67, 154, 169);
+    "
+  >
+    Posts
+  </h2>
+</div>
+<% posts.forEach(post=> { %>
+<form action="/" method="post">
+  <div class="container-fluid t-4 p-4">
+    <h2
+      class="t-2 p-1"
+      style="
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: rgb(243, 16, 61);
+      "
+    >
+      <%= post.tittle %>
     </h2>
-    <p style="font-family: 'Times New Roman', Times, serif; color: black;">
-      <%= post.body+"....." %>
+    <p
+      class="ms-4"
+      style="font-family: 'Times New Roman', Times, serif; color: black"
+    >
+      <%= post.body.substring(0,50)+"....." %>
       <a href="/posts/<%=post._id%>">Read more</a>
     </p>
   </div>
 </form>
-    <% }); %> 
- 
-      <!-- footer -->
-      <%- include("headfoot/footer"); -%>
+<% }); %>
+
+<!-- footer -->
+<%- include("headfoot/footer"); -%>

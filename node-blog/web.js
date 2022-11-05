@@ -7,7 +7,7 @@ const _ = require('lodash');
 const mongoose = require('mongoose');
 const { stubString } = require("lodash");
 
-mongoose.connect("mongodb+srv://yash7906:ybig2121@cluster0.gnqwd.mongodb.net/BlogByYDB",{
+mongoose.connect("mongodb+srv://yash7652:ybig2121@cluster0.gnqwd.mongodb.net/BlogByYDB",{
   useNewUrlParser: true,
 });
 
@@ -23,10 +23,13 @@ const Post = mongoose.model("Post", postSchema);
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(express.urlencoded({
+//   extended: false
+// }));
+app.use(express.json({extended: true}));
+
 app.use(express.static("public"));
+
 
 app.get("/", function(req, res) {
 
@@ -34,6 +37,7 @@ app.get("/", function(req, res) {
     if(err){
       console.log(err);
     }{
+      console.log(posts);
       res.render("index", {
         posts: posts
       });
@@ -104,6 +108,7 @@ app.get("/addp", function(req, res) {
 });
 
 app.post("/addp", function(req, res) {
+
     const post = new Post({
       tittle: req.body.tittle,
       body: req.body.content
@@ -126,6 +131,7 @@ app.get("/posts/:posttittle", function(req, res) {
       });
   });
 });
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {

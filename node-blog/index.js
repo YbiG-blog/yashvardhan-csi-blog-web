@@ -37,7 +37,7 @@ app.get("/", function(req, res) {
     if(err){
       console.log(err);
     }{
-      console.log(posts);
+      // console.log(posts);
       res.render("index", {
         posts: posts
       });

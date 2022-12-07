@@ -1,37 +1,23 @@
 {
-  "name": "yashvardhan-csi-blog-web",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "this is the best blog",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"No build specified\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/YbiG-blog/yashvardhan-csi-blog-web.git"
-  },
-  "author": "yash vardhan",
+  "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "16.13.0"
-  },
-  "bugs": {
-    "url": "https://github.com/YbiG-blog/yashvardhan-csi-blog-web/issues"
-  },
-  "homepage": "https://github.com/YbiG-blog/yashvardhan-csi-blog-web#readme",
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "ejs": "^3.1.6",
-    "express": "^4.17.2",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
     "lodash": "^4.17.21",
-    "mongoose": "^6.1.7",
+    "mongoose": "^6.8.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }
-
-  
